@@ -26,6 +26,7 @@ Route::prefix('v1')->group(function() {
       Route::post('auth/logout', [Auth::class, 'logout']);
       Route::get('profile', [AuthController::class, 'profile']);
       Route::post('/post/create', [PostController::class, 'create']);
+      Route::delete('/post/delete/{id}', [PostController::class, 'destroy']);
     });
 
 });
