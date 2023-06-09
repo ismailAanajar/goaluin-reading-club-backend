@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Api\V1\AuthController;
+use App\Http\Controllers\Api\V1\PostController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
@@ -24,7 +25,7 @@ Route::prefix('v1')->group(function() {
      Route::middleware('auth:sanctum')->group(function () {
       Route::post('auth/logout', [Auth::class, 'logout']);
       Route::get('profile', [AuthController::class, 'profile']);
-    //   Route::get('posts', [AuthController::class, 'profile']);
+      Route::post('/post/create', [PostController::class, 'create']);
     });
 
 });
